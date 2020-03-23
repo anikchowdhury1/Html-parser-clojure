@@ -6,11 +6,43 @@ FIXME: description
 
 Download from http://example.com/FIXME.
 
+## dev-config.edn
+ 
+    {
+     ;; nav panel related html
+     :data-to-be-replaced "<body>\n\n<header>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"company-name\"><a href=\"/\"><img src=\"/images/logo.svg\"\n\t\t\t\t\t\talt=\"Dandy Dialer Logo\" width=\"95\" height=\"33\" /></a></div>\n<nav>\n\t<a class=\"nav-toggle\" id=\"open-nav\" href=\"#\">&#9776;</a>\n\t<a class=\"editor-link btn\" href=\"cloudcannon:collections/_data/navigation.yml\" class=\"btn\"><strong>&#9998;</strong> Edit navigation</a>\n\t\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/pricing/\" class=\"\" >Pricing</a>\n\t\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/blog/\" class=\"\" >Blog</a>\n\t\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/about/\" class=\"\" >About</a>\n\t\n\t\t\n\t\t\n\n\t\t<a href=\"/contact/\" class=\"\" >Contact</a>\n\n\n\t\n\t\t<a href=\"/dandydialer-doc/latest/welcome\" class=\"\" >Documentations</a>\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/faqs/\" class=\"\" >Faqs</a>\n\t\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/\" class=\"\" target=\"_blank\">Login</a>\n\t\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/\" class=\" highlight\" target=\"_blank\">Sign Up</a>\n\t\n</nav>\n\n\t\t</div>\n\t</header>\n"
+     
+     ;; where to insert data
+     :data-search "<body>"
+     
+     ;; required css
+     :data-replaced-css "<link rel=\"stylesheet\" href=\"/css/screen.css\">\n\t<link rel=\"icon\" type=\"image/png\" href=\"/favicon.png\">\n  <!--[if IE]><link rel=\"shortcut icon\" href=\"../../latest/_images/favicon.ico\"><![endif]-->\n  <meta content=\"Dandy Dialer\" name=\"application-name\">"
+    
+     ;; where to insert css
+     :data-css-search "<meta content=\"Dandy Dialer\" name=\"application-name\">"
+    
+     ;; the directory path where dandydialer-doc/latest/ is placed
+     :directory-path-doc "/Users/anik_chowdhury/Pictures/dandydialer-doc/latest/"
+    
+     ;; folder's names
+     :folder-name ["call_scripts"
+                   "campaigns"
+                   "live_agents"
+                   "welcome"
+                   "audio_files"
+                   "caller_IDs"
+                   "contacts"
+                   "sip_gateways"
+                   "account"]}
+
+
+
 ## Usage
 
 FIXME: explanation
 
-    $ java -jar html-parser-0.1.0-standalone.jar [args]
+    $ java -Dconfig="dev-config.edn" -jar target/html-parser.jar
+
 
 ## Options
 
