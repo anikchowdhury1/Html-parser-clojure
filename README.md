@@ -11,10 +11,30 @@ Download from http://example.com/FIXME.
     {
      ;; nav panel related html
      :data-to-be-replaced "<body>\n\n<header>\n\t\t<div class=\"container\">\n\t\t\t<div class=\"company-name\"><a href=\"/\"><img src=\"/images/logo.svg\"\n\t\t\t\t\t\talt=\"Dandy Dialer Logo\" width=\"95\" height=\"33\" /></a></div>\n<nav>\n\t<a class=\"nav-toggle\" id=\"open-nav\" href=\"#\">&#9776;</a>\n\t<a class=\"editor-link btn\" href=\"cloudcannon:collections/_data/navigation.yml\" class=\"btn\"><strong>&#9998;</strong> Edit navigation</a>\n\t\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/pricing/\" class=\"\" >Pricing</a>\n\t\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/blog/\" class=\"\" >Blog</a>\n\t\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/about/\" class=\"\" >About</a>\n\t\n\t\t\n\t\t\n\n\t\t<a href=\"/contact/\" class=\"\" >Contact</a>\n\n\n\t\n\t\t<a href=\"/dandydialer-doc/latest/welcome\" class=\"\" >Documentations</a>\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/faqs/\" class=\"\" >Faqs</a>\n\t\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/\" class=\"\" target=\"_blank\">Login</a>\n\t\n\t\t\n\t\t\n\n\t\t\n\t\t<a href=\"/\" class=\" highlight\" target=\"_blank\">Sign Up</a>\n\t\n</nav>\n\n\t\t</div>\n\t</header>\n"
-     
      ;; where to insert data
      :data-search "<body>"
-     
+    
+     ;; doc-integration data
+     ;; :doc-integration "<a href=\"/contact/\" class=\"\" >Contact</a>\n\n\n\t\n\t\t<a href=\"/dandydialer-doc/latest/welcome\" class=\"\" >Documentations</a>"
+    
+     ;; doc-integration search
+     ;; :doc-search "<a href=\"/contact/\" class=\"\" >Contact</a>"
+    
+    
+     ;; :path-to-integrate-doc "/Users/anik_chowdhury/IdeaProjects/dandy-dialer-website/_site/"
+    
+     ;; base url of the website
+     :site-map-url "http://localhost:4000"
+    
+     ;; sitemap form
+     :site-map-form "\n<url>\n<loc>%s</loc>\n</url>\n"
+    
+     ;; search tag of sitemap.xml
+     :site-map-search "\n<url>\n<loc>%s/contact/</loc>\n</url>\n"
+    
+     ;; sitemap path
+     :site-map-file-path "/Users/anik_chowdhury/Pictures/dandydialer-doc/sitemap.xml"
+    
      ;; required css
      :data-replaced-css "<link rel=\"stylesheet\" href=\"/css/screen.css\">\n\t<link rel=\"icon\" type=\"image/png\" href=\"/favicon.png\">\n  <!--[if IE]><link rel=\"shortcut icon\" href=\"../../latest/_images/favicon.ico\"><![endif]-->\n  <meta content=\"Dandy Dialer\" name=\"application-name\">"
     
@@ -34,6 +54,7 @@ Download from http://example.com/FIXME.
                    "contacts"
                    "sip_gateways"
                    "account"]}
+
 
 
 
