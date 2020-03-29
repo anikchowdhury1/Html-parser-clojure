@@ -15,6 +15,8 @@
 (def folder-name (:folder-name env))
 (def site-map-data (atom []))
 
+;; .............Sitemap Generation and modification...........
+
 ;; iterated data stored in atom
 (defn site-map-val-generation [file-path]
   (let [url (:site-map-url env)
@@ -30,19 +32,11 @@
 (defn site-map-generation [site-map-mod-val]
   (let [site-map-val (slurp (:site-map-file-path env))
         search-site-map (format (:site-map-search env) (:site-map-url env))
-        mod-site-map-body (str/replace site-map-val search-site-map (str search-site-map site-map-mod-val))]
+        mod-site-map-body (str/replace site-map-val search-site-map (str search-site-map site-map-mod-val))
+        mod-site-map-full (str/replace mod-site-map-body (:site-map-url-search env) (str (:site-map-url env) "/"))]
 
     (io/delete-file (:site-map-file-path env))
-    (spit (:site-map-file-path env) mod-site-map-body)))
-
-
-;; html file generation
-(defn html-insertion [file-path]
-  (let [html-val (slurp file-path)
-        mod-html-body (str/replace html-val data-search data-to-be-replaced)
-        mod-html-include-css (str/replace mod-html-body data-css-search data-replaced-css)]
-    (io/delete-file file-path)
-    (spit file-path mod-html-include-css)))
+    (spit (:site-map-file-path env) mod-site-map-full)))
 
 
 (defn directory-parsing [directory-lists]
@@ -56,6 +50,20 @@
           (recur (rest lists)))))))
 
 
+;;...............................................................................................................
+
+
+
+;;................................ Html file generation..................................................
+
+(defn html-insertion [file-path]
+  (let [html-val (slurp file-path)
+        mod-html-body (str/replace html-val data-search data-to-be-replaced)
+        mod-html-include-css (str/replace mod-html-body data-css-search data-replaced-css)]
+    (io/delete-file file-path)
+    (spit file-path mod-html-include-css)))
+
+
 (defn html-parsing [html-lists]
   (loop [lists html-lists]
     (let [single-list (first lists)]
@@ -65,6 +73,8 @@
           ;(prn single-list)
           (html-insertion single-list)
           (recur (rest lists)))))))
+
+;; ....................................................................................................
 
 (defn folder-traversing []
   (let [file-path directory-path
