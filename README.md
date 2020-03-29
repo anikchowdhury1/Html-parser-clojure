@@ -28,6 +28,11 @@ Download from http://example.com/FIXME.
     
      ;; sitemap form
      :site-map-form "\n<url>\n<loc>%s</loc>\n</url>\n"
+     
+     
+     ;; replace the url of generated sitemap with the :site-map-url (base url)
+     :site-map-url-search "http://localhost:4000/"
+
     
      ;; search tag of sitemap.xml
      :site-map-search "\n<url>\n<loc>%s/contact/</loc>\n</url>\n"
