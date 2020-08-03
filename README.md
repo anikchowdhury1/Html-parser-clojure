@@ -1,7 +1,6 @@
 # html-parser
 
-FIXME: description
-
+A tool by clojure that insert sitemap in documentations by formed by Redhat's ascii-binder.
 ## Installation
 
 Download from http://example.com/FIXME.
@@ -20,25 +19,20 @@ Download from http://example.com/FIXME.
      ;; doc-integration search
      ;; :doc-search "<a href=\"/contact/\" class=\"\" >Contact</a>"
     
-    
-     ;; :path-to-integrate-doc "/Users/anik_chowdhury/IdeaProjects/dandy-dialer-website/_site/"
-    
      ;; base url of the website
      :site-map-url "http://localhost:4000"
     
      ;; sitemap form
-     :site-map-form "\n<url>\n<loc>%s</loc>\n</url>\n"
-     
-     
-     ;; replace the url of generated sitemap with the :site-map-url (base url)
-     :site-map-url-search "http://localhost:4000/"
-
+     :site-map-form "\n<url>\n<loc>%s</loc>\n</url>"
     
      ;; search tag of sitemap.xml
      :site-map-search "\n<url>\n<loc>%s/contact/</loc>\n</url>\n"
     
+     ;; replace the url of generated sitemap with the :site-map-url (base url)
+     :site-map-url-search "http://localhost:4000/"
+    
      ;; sitemap path
-     :site-map-file-path "/Users/anik_chowdhury/Pictures/dandydialer-doc/sitemap.xml"
+     :site-map-file-path "/Users/user_name/folder/project/sitemap.xml"
     
      ;; required css
      :data-replaced-css "<link rel=\"stylesheet\" href=\"/css/screen.css\">\n\t<link rel=\"icon\" type=\"image/png\" href=\"/favicon.png\">\n  <!--[if IE]><link rel=\"shortcut icon\" href=\"../../latest/_images/favicon.ico\"><![endif]-->\n  <meta content=\"Dandy Dialer\" name=\"application-name\">"
@@ -46,10 +40,10 @@ Download from http://example.com/FIXME.
      ;; where to insert css
      :data-css-search "<meta content=\"Dandy Dialer\" name=\"application-name\">"
     
-     ;; the directory path where dandydialer-doc/latest/ is placed
-     :directory-path-doc "/Users/anik_chowdhury/Pictures/dandydialer-doc/latest/"
+     ;; the directory path where project/latest/ is placed
+     :directory-path-doc "/Users/username/folder/project/latest/"
     
-     ;; folder's names
+     ;; folder's names which will be retrieved from using redhat's ascii-binder
      :folder-name ["call_scripts"
                    "campaigns"
                    "live_agents"
@@ -61,30 +55,9 @@ Download from http://example.com/FIXME.
                    "account"]}
 
 
-
-
 ## Usage
 
-FIXME: explanation
-
     $ java -Dconfig="dev-config.edn" -jar target/html-parser.jar
-
-
-## Options
-
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
 
 ## License
 
